@@ -134,6 +134,7 @@ tasks {
 				args("--exclude-tag", "exclude")
 				args("--reports-dir", reportsDir)
 				systemProperty("java.util.logging.manager", "org.apache.logging.log4j.jul.LogManager")
+				systemProperty("junit.platform.reports.dir", reportsDir)
 				debug = debugging
 				if (!debugging) {
 					standardOutput = output
