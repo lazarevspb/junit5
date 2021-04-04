@@ -125,6 +125,7 @@ tasks {
 			val debugging = findProperty("consoleLauncherTestDebug")?.toString()?.toBoolean() ?: false
 			val output = ByteArrayOutputStream()
 			val result = javaexec {
+				debug = project.findProperty("debug") == "true"
 				classpath = runtimeClasspath
 				mainClass.set("org.junit.platform.console.ConsoleLauncher")
 				args("--scan-classpath")
