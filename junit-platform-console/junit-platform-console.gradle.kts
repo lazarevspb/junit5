@@ -22,6 +22,12 @@ dependencies {
 }
 
 tasks {
+	compileModule {
+		options.compilerArgs.addAll(listOf(
+			"--add-modules", "org.opentest4j.reporting.events",
+			"--add-reads", "org.junit.platform.reporting=org.opentest4j.reporting.events"
+		))
+	}
 	shadowJar {
 		exclude("META-INF/versions/9/module-info.class")
 		relocate("picocli", "org.junit.platform.console.shadow.picocli")
